@@ -18,18 +18,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
 
-      # 👇 ESTE PASO ES EL QUE TE FALTABA
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10 # aseguramos misma versión que tenés local
+      # 👇 Instala pnpm de forma global en el runner
+      - name: Install pnpm
+        run: npm install -g pnpm@10
 
-      - run: pnpm approve-builds
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm build
+      # 👇 (opcional, pero recomendado con pnpm 10)
+      - name: Approve builds
+        run: pnpm approve-builds
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
