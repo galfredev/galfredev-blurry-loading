@@ -20,13 +20,12 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
+      # 👇 ESTE PASO ES EL QUE TE FALTABA
       - uses: pnpm/action-setup@v4
         with:
-          version: 10 # estás usando pnpm v10 en local
+          version: 10 # aseguramos misma versión que tenés local
 
-      # 👇 Necesario con pnpm v10 para permitir postinstall (esbuild)
       - run: pnpm approve-builds
-
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
 
