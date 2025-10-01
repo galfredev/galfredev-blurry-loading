@@ -1,7 +1,7 @@
 # Proyecto 01 – Blurry Loading
 
 Efecto de **blur progresivo** a pantalla completa con contador accesible.  
-Proyecto 01 de la serie *15 mini-proyectos con Vite + React + Tailwind*.
+Proyecto 01/15.
 
 🔗 **[Demo en GitHub Pages](https://galfredev.github.io/galfredev-blurry-loading/)**  
 📂 **[Repositorio](https://github.com/GalfreDev/galfredev-blurry-loading)**
